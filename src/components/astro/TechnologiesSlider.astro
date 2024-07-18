@@ -1,5 +1,116 @@
 ---
-
+import TechnologyStar from "../svg/TechnologyStar.astro";
 ---
 
-<div class="bg-black mt-32 h-20"></div>
+<div class="bg-[#1A1A1A] mt-32 h-20 flex items-center gap-8 slider-container">
+	<div class="slider">
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			Tailwind
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			TypeScript
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			JavaScript
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			HTML
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			CSS
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			Node.js
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			Java
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			C#
+		</h1>
+		<TechnologyStar />
+
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			Svelte
+		</h1>
+		<TechnologyStar />
+		<h1
+			class="uppercase text-5xl text-transparent font-semibold slider-item"
+			style="-webkit-text-stroke: 2px #646464"
+		>
+			React
+		</h1>
+		<TechnologyStar />
+	</div>
+</div>
+
+<style>
+	.slider-container {
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+		width: 100%;
+	}
+
+	.slider {
+		display: flex;
+		animation: scroll 30s linear infinite;
+	}
+
+	.slider-item {
+		display: inline-block;
+		padding: 0 20px;
+		font-size: 2rem;
+	}
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+</style>
+
+<script>
+	const slider = document.querySelector(".slider");
+	if (slider) {
+		const sliderContent = slider.innerHTML;
+		slider.innerHTML += sliderContent;
+	}
+</script>

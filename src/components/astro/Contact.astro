@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import lowerBanner from "../svg/LowerBanner.svg";
+import lowerBannerLong from "../svg/LowerBannerLong.svg";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a id="contact"></a>
+<div class={`${className} container inter-tight relative`}>
+	<Image src={lowerBanner} alt="" class="w-full max-md:hidden" />
+	<Image src={lowerBannerLong} alt="" class="w-full md:hidden" />
+	<div
+		class="absolute left-[40%] top-[40px] md:top-[60px] right-[40px] flex flex-col h-[calc(100%-80px)] md:h-[calc(100%-115px)] items-start justify-center gap-4 md:gap-4"
+	>
+		<h1 class="text-white text-xl lg:text-3xl font-semibold">Ready to work with me on your projects?</h1>
+		<div class="flex flex-col md:flex-row max-md:w-full">
+			<a
+				class="px-4 md:px-8 py-3 bg-black rounded-2xl text-white font-medium text-sm md:text-md hover:bg-neutral-800 transition-all hover:scale-105 text-center"
+				href="https://discord.gg"
+				target="_blank"
+			>
+				Contact on Discord
+			</a>
+			<a
+				class="px-4 md:px-8 py-3 text-sm md:text-md font-medium text-white poppins text-center"
+				href="https://lightservices.dev"
+				target="_blank"
+			>
+				Join Light Services
+			</a>
+		</div>
+	</div>
+</div>

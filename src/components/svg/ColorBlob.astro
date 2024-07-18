@@ -1,0 +1,44 @@
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg width="700" height="700" viewBox="0 0 447 893" fill="none" xmlns="http://www.w3.org/2000/svg" class={className}>
+	<g opacity="0.49" filter="url(#filter0_f_1_185)">
+		<circle
+			cx="1.11641"
+			cy="446.586"
+			r="385.433"
+			transform="rotate(-15 1.11641 446.586)"
+			fill="url(#paint0_radial_1_185)"></circle>
+	</g>
+	<defs>
+		<filter
+			id="filter0_f_1_185"
+			x="-444.612"
+			y="0.857265"
+			width="891.458"
+			height="891.458"
+			filterUnits="userSpaceOnUse"
+			color-interpolation-filters="sRGB"
+		>
+			<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+			<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+			<feGaussianBlur stdDeviation="30.1" result="effect1_foregroundBlur_1_185"></feGaussianBlur>
+		</filter>
+		<radialGradient
+			id="paint0_radial_1_185"
+			cx="0"
+			cy="0"
+			r="1"
+			gradientUnits="userSpaceOnUse"
+			gradientTransform="translate(1.11639 446.586) rotate(90) scale(385.433)"
+		>
+			<stop stop-color="#AEACFF"></stop>
+			<stop offset="1" stop-color="#646375" stop-opacity="0"></stop>
+		</radialGradient>
+	</defs>
+</svg>
