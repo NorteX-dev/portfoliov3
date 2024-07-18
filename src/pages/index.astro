@@ -2,6 +2,8 @@
 import Nav from "../components/astro/Nav.astro";
 import Hero from "../components/astro/Hero.astro";
 import ScrollDownButton from "../components/astro/ScrollDownButton.astro";
+import TechnologiesSlider from "../components/astro/TechnologiesSlider.astro";
+import About from "../components/astro/About.astro";
 ---
 
 <html lang="en">
@@ -16,6 +18,9 @@ import ScrollDownButton from "../components/astro/ScrollDownButton.astro";
 		<Nav />
 		<Hero />
 		<ScrollDownButton />
+		<TechnologiesSlider />
+		<About class="mt-48" />
+		<div class="mb-[999rem]"></div>
 	</body>
 </html>
 
@@ -39,5 +44,13 @@ import ScrollDownButton from "../components/astro/ScrollDownButton.astro";
 		font-family: "Poppins", sans-serif;
 		font-optical-sizing: auto;
 		font-style: normal;
+	}
+
+	.container {
+		@apply mx-auto px-4 max-w-3xl;
+	}
+
+	.container-wide {
+		@apply mx-auto px-4 max-w-5xl;
 	}
 </style>

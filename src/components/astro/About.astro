@@ -1,0 +1,174 @@
+---
+import { Image } from "astro:assets";
+import typescriptImage from "../images/typescript.png";
+import javascriptImage from "../images/javascript.png";
+import nodeImage from "../images/node.png";
+import astroImage from "../images/astro.svg";
+import csharpImage from "../images/csharp.png";
+import javaImage from "../images/java.png";
+import reactImage from "../images/react.svg";
+import luaImage from "../images/lua.png";
+import tanstackQueryImage from "../images/tanstackquery.png";
+import svelteImage from "../images/svelte.png";
+import nextjsImage from "../images/nextjs.png";
+import tailwindImage from "../images/tailwind.png";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a id="about"></a>
+<div class={`flex text-center px-4 container-wide gap-8 lg:gap-16 ${className}`}>
+	<div class="flex-1 w-full h-64 flex flex-col gap-8 items-center justify-center text-center">
+		<div class="inter-tight font-semibold leading-tight">
+			<p class="text-[64px]">Let's make</p>
+			<p class="text-[52px]">
+				the
+				<span class="bg-gradient-to-r bg-clip-text text-transparent from-indigo-400 to-indigo-300"> web </span>
+			</p>
+			<p class="text-[32px] mt-1">beautiful.</p>
+		</div>
+		<p class="inter-tight font-normal xl:text-lg">
+			I'm an experienced <i>full-stack web developer</i> whose main focus is precisely and meticulously crafted web
+			designs, all whilst keeping in mind the all-important website performance. I primarily make websites like forums,
+			dashboards, blogs, etc. and I'm always open to make yours!
+		</p>
+		<a
+			class="px-8 py-3 bg-black rounded-2xl text-white font-medium text-sm md:text-md hover:bg-neutral-800 transition-all hover:scale-105"
+			href="https://discord.gg"
+			target="_blank"
+		>
+			Contact on Discord
+		</a>
+	</div>
+	<div
+		class="flex-1 w-full max-md:hidden grid grid-cols-5 grid-rows-3 gap-4 *:rounded-lg *:bg-gray-300 *:aspect-square *:p-4"
+	>
+		<div class="">
+			<Image
+				src={typescriptImage}
+				alt="TypeScript"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-cover"
+			/>
+		</div>
+		<div>
+			<Image
+				src={javascriptImage}
+				alt="JavaScript"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-cover"
+			/>
+		</div>
+		<div>
+			<Image
+				src={nodeImage}
+				alt="Node.js"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={reactImage}
+				alt="React.js"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={nextjsImage}
+				alt="Next.js"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-cover"
+			/>
+		</div>
+		<div>
+			<Image
+				src={svelteImage}
+				alt="Svelte and SvelteKit"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={astroImage}
+				alt="Astro"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-cover"
+			/>
+		</div>
+		<div>
+			<Image
+				src={tailwindImage}
+				alt="Tailwind"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={javaImage}
+				alt="Java"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={csharpImage}
+				alt="C#"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={luaImage}
+				alt="C#"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-cover"
+			/>
+		</div>
+		<div>
+			<Image
+				src={tanstackQueryImage}
+				alt="C#"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</div>
