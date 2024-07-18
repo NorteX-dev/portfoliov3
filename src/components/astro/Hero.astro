@@ -1,19 +1,24 @@
 ---
-
+import FlipWordsProxy from "../react/flip-words";
 ---
 
 <div class="text-center mt-[20vh] px-4 w-fit mx-auto">
-	<h1
-		class="text-[48px] md:text-[64px] lg:text-[86px] font-semibold bg-gradient-to-r from-black via-black to-indigo-300 bg-clip-text text-transparent leading-none inter-tight"
-	>
-		Beautiful websites
-	</h1>
-	<h1 class="text-[32px] md:text-[48px] lg:text-[64px] font-semibold leading-none inter-tight">made affordable.</h1>
+	<div class="flex items-center md:flex-row flex-col gap-0 md:gap-2">
+		<h1 class="text-[48px] md:text-[64px] lg:text-[86px] font-semibold leading-none inter-tight">
+			<FlipWordsProxy client:load />
+		</h1>
+		<h1
+			class="text-[48px] md:text-[64px] lg:text-[86px] font-semibold bg-gradient-to-r from-black via-black to-indigo-300 bg-clip-text text-transparent leading-none inter-tight"
+		>
+			websites
+		</h1>
+	</div>
+	<h1 class="text-[32px] md:text-[48px] lg:text-[64px] font-semibold leading-none inter-tight">coded with love.</h1>
 
 	<div class="flex gap-2 md:gap-8 mt-16 lg:mt-20 justify-center items-center">
 		<a
 			class="px-8 py-3 bg-black rounded-2xl text-white font-medium text-sm md:text-md hover:bg-neutral-800 transition-all hover:scale-105"
-			href="https://discord.gg"
+			href="https://discord.com/users/180280668239036416"
 			target="_blank"
 		>
 			Contact on Discord
