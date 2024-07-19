@@ -12,6 +12,9 @@ import tanstackQueryImage from "../images/tanstackquery.png";
 import svelteImage from "../images/svelte.png";
 import nextjsImage from "../images/nextjs.png";
 import tailwindImage from "../images/tailwind.png";
+import htmlImage from "../images/html.png";
+import cssImage from "../images/css.svg";
+import linuxImage from "../images/linux.png";
 
 interface Props {
 	class?: string;
@@ -55,12 +58,14 @@ const { class: className } = Astro.props;
 				height="64"
 				loading="lazy"
 				class="rounded-lg w-full h-full object-cover"
+				data-tooltip="TypeScript"
 			/>
 		</div>
 		<div>
 			<Image
 				src={javascriptImage}
 				alt="JavaScript"
+				data-tooltip="JavaScript"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -71,6 +76,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={nodeImage}
 				alt="Node.js"
+				data-tooltip="Node.js"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -81,6 +87,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={reactImage}
 				alt="React.js"
+				data-tooltip="React.js"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -91,6 +98,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={nextjsImage}
 				alt="Next.js"
+				data-tooltip="Next.js"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -101,6 +109,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={svelteImage}
 				alt="Svelte and SvelteKit"
+				data-tooltip="Svelte and SvelteKit"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -111,6 +120,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={astroImage}
 				alt="Astro"
+				data-tooltip="Astro"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -121,6 +131,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={tailwindImage}
 				alt="Tailwind"
+				data-tooltip="Tailwind"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -131,6 +142,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={javaImage}
 				alt="Java"
+				data-tooltip="Java"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -141,6 +153,7 @@ const { class: className } = Astro.props;
 			<Image
 				src={csharpImage}
 				alt="C#"
+				data-tooltip="C#"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -150,7 +163,8 @@ const { class: className } = Astro.props;
 		<div>
 			<Image
 				src={luaImage}
-				alt="C#"
+				alt="Lua"
+				data-tooltip="Lua"
 				width="64"
 				height="64"
 				loading="lazy"
@@ -160,15 +174,56 @@ const { class: className } = Astro.props;
 		<div>
 			<Image
 				src={tanstackQueryImage}
-				alt="C#"
+				alt="Tanstack Query"
+				data-tooltip="Tanstack Query"
 				width="64"
 				height="64"
 				loading="lazy"
 				class="rounded-lg w-full h-full object-scale-down"
 			/>
 		</div>
-		<div></div>
-		<div></div>
-		<div></div>
+		<div>
+			<Image
+				src={htmlImage}
+				alt="HTML"
+				data-tooltip="HTML"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={cssImage}
+				alt="CSS"
+				data-tooltip="CSS"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
+		<div>
+			<Image
+				src={linuxImage}
+				alt="Linux System Administration"
+				data-tooltip="Linux System Administration"
+				width="64"
+				height="64"
+				loading="lazy"
+				class="rounded-lg w-full h-full object-scale-down"
+			/>
+		</div>
 	</div>
 </div>
+
+<script>
+	import tippy from "tippy.js";
+	import "tippy.js/dist/tippy.css";
+	for (const element of document.querySelectorAll("[data-tooltip]")) {
+		tippy(element, {
+			content: element.getAttribute("data-tooltip"),
+		});
+	}
+</script>

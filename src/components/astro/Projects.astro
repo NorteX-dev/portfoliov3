@@ -18,10 +18,11 @@ const { class: className } = Astro.props;
 ---
 
 <a id="projects"></a>
-<div class={`${className} bg-[#1A1A1A] py-24 inter-tight relative z-[10]`}>
+<div class={`${className} bg-[#1A1A1A] py-24 inter-tight relative z-[10] overflow-hidden`}>
 	<ColorBlob
-		class="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/2 overflow-hidden pointer-events-none -z-[10]"
+		class="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/2 overflow-hidden pointer-events-none -z-[10] max-md:hidden"
 	/>
+
 	<div class="w-fit mx-auto z-10">
 		<p class="text-neutral-500 text-center medium leading-none">EXPLORE ALL OF</p>
 		<h1
@@ -31,139 +32,137 @@ const { class: className } = Astro.props;
 		</h1>
 	</div>
 
-	<div class="overflow-hidden">
-		<div class="embla">
-			<div class="embla__container mt-8 z-10 mx-4 min-w-0 flex poppins">
-				<div class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 relative z-[20]" style="flex: 0 0 25%;">
-					<Darken />
-					<Image
-						src={akatzukiCoverImage}
-						alt="Akatzuki Project"
-						class="w-full h-full z-0 object-cover rounded-xl"
-					/>
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-					>
-						Akatzuki
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Website
-					</h2>
-				</div>
-
-				<div class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative" style="flex: 0 0 25%;">
-					<Darken />
-					<Image
-						src={katocraftCoverImage}
-						alt="Katocraft Project"
-						class="w-full h-full z-0 object-cover rounded-xl"
-					/>
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-					>
-						Katocraft
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Website
-					</h2>
-				</div>
-
-				<a
-					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative"
-					style="flex: 0 0 25%;"
-					href="https://builtbybit.com/resources/ticket-bot-paypal-crypto-invoices.22995/"
-					target="_blank"
+	<div class="embla overflow-hidden">
+		<div class="embla__container mt-8 z-10 mx-4 min-w-0 flex poppins">
+			<a
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+				href="https://builtbybit.com/resources/ticket-bot-paypal-crypto-invoices.22995/"
+				target="_blank"
+			>
+				<Darken />
+				<Image
+					src={lsbotCoverImage}
+					alt="Katocraft Project"
+					class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60] leading-tight"
 				>
-					<Darken />
-					<Image
-						src={lsbotCoverImage}
-						alt="Katocraft Project"
-						class="w-full h-full z-0 object-cover rounded-xl"
-					/>
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60] leading-tight"
-					>
-						Light Services Bot
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Discord bot
-					</h2>
-				</a>
-
-				<a
-					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 relative"
-					style="flex: 0 0 25%;"
-					href="https://kangport.vercel.app/"
-					target="_blank"
+					Light Services Bot
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
 				>
-					<Darken />
-					<Image
-						src={kangarooportCoverImage}
-						alt="Kangaroo Portfolio Project"
-						class="w-full h-full z-0 object-cover rounded-xl"
-					/>
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-					>
-						Example Portfolio
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Website
-					</h2>
-				</a>
+					Discord bot
+				</h2>
+			</a>
 
-				<a
-					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 relative"
-					style="flex: 0 0 25%;"
-					href="https://lightservices.nortexdev.com"
-					target="_blank"
+			<a
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+				href="https://kangport.vercel.app/"
+				target="_blank"
+			>
+				<Darken />
+				<Image
+					src={kangarooportCoverImage}
+					alt="Kangaroo Portfolio Project"
+					class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
 				>
-					<Darken />
-					<Image
-						src={lsDashboardCoverImage}
-						alt="LS Dashboard"
-						class="w-full h-full z-0 object-cover rounded-xl"
-					/>
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-					>
-						Light Services Dashboard
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Full-stack
-					</h2>
-				</a>
+					Example Portfolio
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
+				>
+					Website
+				</h2>
+			</a>
 
-				<a
-					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative"
-					style="flex: 0 0 25%;"
-					href="https://anima-three.vercel.app/"
-					target="_blank"
+			<a
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+				href="https://lightservices.nortexdev.com"
+				target="_blank"
+			>
+				<Darken />
+				<Image
+					src={lsDashboardCoverImage}
+					alt="LS Dashboard"
+					class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
 				>
-					<Darken />
-					<Image src={animaCoverImage} alt="Anima" class="w-full h-full z-0 object-cover rounded-xl" />
-					<h1
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-					>
-						Anima
-					</h1>
-					<h2
-						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-					>
-						Website
-					</h2>
-				</a>
+					Light Services Dashboard
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
+				>
+					Full-stack
+				</h2>
+			</a>
+
+			<div
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+			>
+				<Darken />
+				<Image
+					src={akatzukiCoverImage}
+					alt="Akatzuki Project"
+					class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
+				>
+					Akatzuki
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
+				>
+					Website
+				</h2>
 			</div>
+
+			<div
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+			>
+				<Darken />
+				<Image
+					src={katocraftCoverImage}
+					alt="Katocraft Project"
+					class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
+				>
+					Katocraft
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
+				>
+					Website
+				</h2>
+			</div>
+
+			<a
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+				href="https://anima-three.vercel.app/"
+				target="_blank"
+			>
+				<Darken />
+				<Image src={animaCoverImage} alt="Anima" class="w-full h-full z-0 object-cover rounded-xl" />
+				<h1
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
+				>
+					Anima
+				</h1>
+				<h2
+					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
+				>
+					Website
+				</h2>
+			</a>
 		</div>
 	</div>
 </div>
