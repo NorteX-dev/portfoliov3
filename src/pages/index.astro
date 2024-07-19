@@ -72,3 +72,17 @@ import Footer from "../components/astro/Footer.astro";
 		@apply mx-auto px-4 max-w-5xl;
 	}
 </style>
+
+<script is:inline>
+	const ctcComponents = document.querySelectorAll("[data-ctc]");
+	ctcComponents.forEach((component) => {
+		component.addEventListener("click", () => {
+			let originalText = component.innerText;
+			component.innerText = "Copied to clipboard!";
+			navigator.clipboard.writeText(component.getAttribute("data-ctc"));
+			setTimeout(() => {
+				component.innerText = originalText;
+			}, 2000);
+		});
+	});
+</script>
