@@ -77,11 +77,11 @@ import Footer from "../components/astro/Footer.astro";
 	const ctcComponents = document.querySelectorAll("[data-ctc]");
 	ctcComponents.forEach((component) => {
 		component.addEventListener("click", () => {
-			let originalText = component.innerText;
-			component.innerText = "Copied to clipboard!";
+			let originalText = component.innerHTML;
+			component.innerHTML = "Copied to clipboard!";
 			navigator.clipboard.writeText(component.getAttribute("data-ctc"));
 			setTimeout(() => {
-				component.innerText = originalText;
+				component.innerHTML = originalText;
 			}, 2000);
 		});
 	});
