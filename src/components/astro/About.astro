@@ -218,12 +218,4 @@ const { class: className } = Astro.props;
 	</div>
 </div>
 
-<script>
-	import tippy from "tippy.js";
-	import "tippy.js/dist/tippy.css";
-	for (const element of document.querySelectorAll("[data-tooltip]")) {
-		tippy(element, {
-			content: element.getAttribute("data-tooltip"),
-		});
-	}
-</script>
+<script src="./tippy.ts"></script>
