@@ -5,9 +5,15 @@ import { Image } from "astro:assets";
 import akatzukiCoverImage from "../images/projects/akatzuki.png";
 import katocraftCoverImage from "../images/projects/katocraft.png";
 import lsbotCoverImage from "../images/projects/lsbot.png";
+import realmsCoverImage from "../images/projects/realms.png";
 import kangarooportCoverImage from "../images/projects/kangarooport.png";
 import lsDashboardCoverImage from "../images/projects/lsdash.png";
 import animaCoverImage from "../images/projects/anima.png";
+import productsCoverImage from "../images/projects/products.png";
+import kangv3CoverImage from "../images/projects/kangaroov3.png";
+import nhandlerCoverImage from "../images/projects/nhandler.png";
+import nconfigCoverImage from "../images/projects/nconfig.png";
+import omegalicensingCoverImage from "../images/projects/omegalicensing.png";
 import Darken from "./Darken.astro";
 
 interface Props {
@@ -33,7 +39,7 @@ const { class: className } = Astro.props;
 	</div>
 
 	<div class="embla overflow-hidden">
-		<div class="embla__container mt-8 z-10 mx-4 min-w-0 flex poppins">
+		<div class="embla__container mt-8 z-10 mx-4 min-w-0 flex poppins select-none">
 			<a
 				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
 				href="https://builtbybit.com/resources/ticket-bot-paypal-crypto-invoices.22995/"
@@ -42,19 +48,52 @@ const { class: className } = Astro.props;
 				<Darken />
 				<Image
 					src={lsbotCoverImage}
-					alt="Katocraft Project"
+					alt="Light Services Bot"
 					class="w-full h-full z-0 object-cover rounded-xl"
 				/>
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60] leading-tight"
-				>
-					Light Services Bot
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Discord bot
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Light Services Bot
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Discord bot
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						The single best ticketing & payment handling Discord bot used in Light Services and sold on
+						BuiltByBit.
+					</p>
+				</div>
+			</a>
+
+			<a
+					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+					href="https://realmv2.vercel.app/"
+					target="_blank"
+			>
+				<Darken />
+				<Image
+						src={realmsCoverImage}
+						alt="Realms Hosting"
+						class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Realms Hosting
+					</h1>
+					<h2
+							class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Realms.host is the best hosting to rent a server. I've made the landing page for them along with a blog system based on WP.
+					</p>
+				</div>
 			</a>
 
 			<a
@@ -68,16 +107,19 @@ const { class: className } = Astro.props;
 					alt="Kangaroo Portfolio Project"
 					class="w-full h-full z-0 object-cover rounded-xl"
 				/>
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-				>
-					Example Portfolio
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Website
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Kang Portfolio
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">Example portfolio.</p>
+				</div>
 			</a>
 
 			<a
@@ -91,16 +133,73 @@ const { class: className } = Astro.props;
 					alt="LS Dashboard"
 					class="w-full h-full z-0 object-cover rounded-xl"
 				/>
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-				>
-					Light Services Dashboard
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Full-stack
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Light Services Dashboard
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Full-stack
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">A full-stack web interface project for Light Services.</p>
+				</div>
+			</a>
+
+			<a
+					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+					href="https://builtbybit.com/resources/omegalicensing-system.41222/"
+					target="_blank"
+			>
+				<Darken />
+				<Image
+						src={omegalicensingCoverImage}
+						alt="OmegaLicensing"
+						class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+							class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						OmegaLicensing Bot
+					</h1>
+					<h2
+							class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Discord bot
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						A license management bot sold at BuiltByBit.
+					</p>
+				</div>
+			</a>
+
+			<a
+					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-20 relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+					href="https://builtbybit.com/resources/light-products-sell-products.51932/"
+					target="_blank"
+			>
+				<Darken />
+				<Image
+						src={productsCoverImage}
+						alt="Light Products"
+						class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Light Products
+					</h1>
+					<h2 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Discord bot
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Easily set up a resource market allowing your members to submit products and charge a percentage, or sell your own.
+					</p>
+				</div>
 			</a>
 
 			<div
@@ -112,16 +211,45 @@ const { class: className } = Astro.props;
 					alt="Akatzuki Project"
 					class="w-full h-full z-0 object-cover rounded-xl"
 				/>
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-				>
-					Akatzuki
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Website
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Akatzuki
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Client order, NFT project website (preview unavailable).
+					</p>
+				</div>
+			</div>
+
+			<div
+					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+			>
+				<Darken />
+				<Image
+						src={kangv3CoverImage}
+						alt="Kangaroo v3 Portfolio"
+						class="w-full h-full z-0 object-cover rounded-xl"
+				/>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Kangaroo v3 Portfolio
+					</h1>
+					<h2 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Helped with hero and code clean-up.
+					</p>
+				</div>
 			</div>
 
 			<div
@@ -133,16 +261,21 @@ const { class: className } = Astro.props;
 					alt="Katocraft Project"
 					class="w-full h-full z-0 object-cover rounded-xl"
 				/>
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-				>
-					Katocraft
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Website
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Katocraft
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Client order, website to search CS:GO Katowice 2014 stickers (preview unavailable).
+					</p>
+				</div>
 			</div>
 
 			<a
@@ -152,16 +285,67 @@ const { class: className } = Astro.props;
 			>
 				<Darken />
 				<Image src={animaCoverImage} alt="Anima" class="w-full h-full z-0 object-cover rounded-xl" />
-				<h1
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent absolute bottom-12 left-4 z-[60]"
-				>
-					Anima
-				</h1>
-				<h2
-					class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent absolute bottom-4 left-4 z-[60]"
-				>
-					Website
-				</h2>
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						Anima
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Website
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						Example website for a fictional Netflix-like anime streaming service.
+					</p>
+				</div>
+			</a>
+
+			<a
+					class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+					href="https://github.com/nortex-dev/nconfig"
+					target="_blank"
+			>
+				<Darken />
+				<Image src={nconfigCoverImage} alt="NConfig" class="w-full h-full z-0 object-cover rounded-xl" />
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						NConfig
+					</h1>
+					<h2 class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Open-source Lib
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						A standardized way to write type-safe, validated configs.
+					</p>
+				</div>
+			</a>
+
+			<a
+				class="embla__slide bg-[#474747] rounded-xl h-64 mx-4 z-[20] relative flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
+				href="https://github.com/nortex-dev/nhandler"
+				target="_blank"
+			>
+				<Darken />
+				<Image src={nhandlerCoverImage} alt="Anima" class="w-full h-full z-0 object-cover rounded-xl" />
+				<div class="absolute bottom-4 left-4 right-4 z-[60]">
+					<h1
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-3xl text-transparent leading-tight"
+					>
+						NHandler
+					</h1>
+					<h2
+						class="bg-clip-text bg-gradient-to-r from-white to-indigo-300 font-semibold text-xl text-transparent z-[60]"
+					>
+						Open-source Lib
+					</h2>
+					<p class="text-neutral-300 text-xs mt-1">
+						My signature Discord bot command and event handling utility.
+					</p>
+				</div>
 			</a>
 		</div>
 	</div>
