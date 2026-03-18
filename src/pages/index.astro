@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import Nav from "../components/astro/Nav.astro";
 import Hero from "../components/astro/Hero.astro";
 import ScrollDownButton from "../components/astro/ScrollDownButton.astro";
@@ -14,7 +15,6 @@ import Footer from "../components/astro/Footer.astro";
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content="Astro.generator}" />
 		<meta property="title" content="NorteX" />
 		<meta property="description" content="Beautiful websites coded with love." />
 		<meta property="og:title" content="NorteX" />
@@ -38,12 +38,10 @@ import Footer from "../components/astro/Footer.astro";
 </html>
 
 <style is:global>
-	@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+	@reference "tailwindcss";
 
 	body {
-		font-family: "Poppins", sans-serif;
-		font-optical-sizing: auto;
-		font-style: normal;
+		font-family: "Space Grotesk", sans-serif;
 		overflow-x: hidden;
 	}
 
@@ -52,16 +50,12 @@ import Footer from "../components/astro/Footer.astro";
 		scroll-behavior: smooth;
 	}
 
-	.inter-tight {
-		font-family: "Inter Tight", sans-serif;
-		font-optical-sizing: auto;
-		font-style: normal;
+	.display-font {
+		font-family: "Space Grotesk", sans-serif;
 	}
 
-	.poppins {
-		font-family: "Poppins", sans-serif;
-		font-optical-sizing: auto;
-		font-style: normal;
+	.inter {
+		font-family: "Inter", sans-serif;
 	}
 
 	.container {
