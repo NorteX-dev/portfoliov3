@@ -2,9 +2,12 @@
 import Star from "../svg/Star.astro";
 ---
 
-<nav class="flex flex-col md:flex-row items-center justify-around my-6 md:my-16 display-font max-md:gap-6">
-	<h1 class="font-bold text-3xl flex gap-4 items-center text-[#00113B]"><Star /> NorteX</h1>
-	<ul class="flex flex-col items-center md:flex-row gap-4 lg:gap-16 *:font-medium">
+<nav class="bg-blue-500 flex flex-col md:flex-row items-center justify-around py-6 display-font max-md:gap-6">
+	<h1 class="font-bold text-3xl flex items-center text-white">
+		<Star />
+		<span class="ml-4">NorteX</span><span class="text-blue-800 ml-2">.</span>
+	</h1>
+	<ul class="flex flex-col items-center md:flex-row text-white gap-4 lg:gap-16 *:font-medium">
 		<li>
 			<a href="#about">About</a>
 		</li>
@@ -15,5 +18,5 @@ import Star from "../svg/Star.astro";
 		<!--	<a href="#testimonials">Testimonials</a>-->
 		<!--</li>-->
 	</ul>
-	<a class="font-medium border border-black rounded-2xl px-8 py-2" href="#contact">Contact</a>
+	<a class="border border-white rounded-2xl px-8 py-2 text-white display-font font-bold" href="#contact">Contact</a>
 </nav>
