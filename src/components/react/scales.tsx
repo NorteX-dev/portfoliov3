@@ -13,21 +13,12 @@ function ScalesWithImageDemo() {
 				<div className="absolute -inset-x-[30%] -top-10 h-8 w-[160%] mask-r-from-90% mask-l-from-90%">
 					<Scales size={8} className="rounded-lg" />
 				</div>
-				<div className="absolute -inset-x-[30%] -bottom-10 h-8 w-[160%] mask-r-from-90% mask-l-from-90%">
-					<Scales size={8} className="rounded-lg" />
-				</div>
-				<div className="relative z-10 h-full w-full overflow-hidden rounded-none bg-white shadow-sm ring-1 shadow-black/10 ring-black/5 dark:bg-neutral-800">
-					<img
-						src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1288&auto=format&fit=crop"
-						alt="Portrait"
-						className="h-full w-full object-cover filter"
-					/>
-				</div>
+				<div className="absolute -inset-x-[30%] -bottom-10 h-8 w-[160%] mask-r-from-90% mask-l-from-90%"></div>
 			</div>
 		</div>
 	);
 }
 
 export default function ScalesProxy() {
-	return <Scales />;
+	return <ScalesWithImageDemo />;
 }
