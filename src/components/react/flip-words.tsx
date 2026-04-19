@@ -55,7 +55,7 @@ const FlipWords = ({
 					scale: 1.2,
 					position: "absolute",
 				}}
-				className={cn("z-10 inline-block relative text-left text-black px-2", className)}
+				className={cn("z-10 inline-block relative text-left text-white pr-1", className)}
 				key={currentWord}
 			>
 				{currentWord.split("").map((letter, index) => (
@@ -69,7 +69,7 @@ const FlipWords = ({
 						}}
 						className="inline-block"
 					>
-						{letter}
+						{letter === " " ? "\u00A0" : letter}
 					</motion.span>
 				))}
 			</motion.div>
@@ -78,5 +78,5 @@ const FlipWords = ({
 };
 
 export default function FlipWordsProxy() {
-	return <FlipWords words={["Beautiful", "Modern", "Fast", "Affordable"]} />;
+	return <FlipWords words={["perform", "astonish", "scale", "just work", "cost less"]} />;
 }
