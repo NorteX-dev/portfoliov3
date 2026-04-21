@@ -78,5 +78,5 @@ const FlipWords = ({
 };
 
 export default function FlipWordsProxy() {
-	return <FlipWords words={["perform", "astonish", "scale", "just work", "cost less"]} />;
+	return <FlipWords words={["perform.", "astonish.", "scale.", "just work."]} />;
 }
