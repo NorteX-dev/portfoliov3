@@ -1,7 +1,7 @@
 "use client";
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
-import LightStoreFull from "@/components/images/projects-full/light-store.png";
-import WhmcsFull from "@/components/images/projects-full/whmcs.png";
+import LightStoreFull from "@/assets/projects-full/light-store.png";
+import WhmcsFull from "@/assets/projects-full/whmcs.png";
 
 export default function ParallaxScrollDemo() {
 	return <ParallaxScroll images={images} />;
