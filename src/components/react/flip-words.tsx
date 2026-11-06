@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "./utils";
 
@@ -58,25 +58,35 @@ const FlipWords = ({
 				className={cn("z-10 inline-block relative text-left text-white pr-1", className)}
 				key={currentWord}
 			>
-				{currentWord.split("").map((letter, index) => (
-					<motion.span
-						key={currentWord + index}
-						initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-						animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-						transition={{
-							delay: index * 0.08,
-							duration: 0.4,
-						}}
-						className="inline-block"
-					>
-						{letter === " " ? "\u00A0" : letter}
-					</motion.span>
-				))}
+				{currentWord.split(" ").map((word, wordIndex, words) => {
+					const offset = words.slice(0, wordIndex).join(" ").length + (wordIndex > 0 ? 1 : 0);
+					return (
+						<Fragment key={currentWord + wordIndex}>
+							<span className="inline-block whitespace-nowrap">
+								{word.split("").map((letter, letterIndex) => (
+									<motion.span
+										key={currentWord + (offset + letterIndex)}
+										initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+										animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+										transition={{
+											delay: (offset + letterIndex) * 0.08,
+											duration: 0.4,
+										}}
+										className="inline-block"
+									>
+										{letter}
+									</motion.span>
+								))}
+							</span>
+							{wordIndex < words.length - 1 && " "}
+						</Fragment>
+					);
+				})}
 			</motion.div>
 		</AnimatePresence>
 	);
 };
 
-export default function FlipWordsProxy({ className }: { className?: string }) {
-	return <FlipWords words={["perform.", "astonish.", "scale.", "just work."]} className={className} />;
+export default function FlipWordsProxy({ words, className }: { words: string[]; className?: string }) {
+	return <FlipWords words={words} className={className} />;
 }

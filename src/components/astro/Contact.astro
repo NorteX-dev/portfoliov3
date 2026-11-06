@@ -1,9 +1,12 @@
 ---
+import { getTranslations } from "@/i18n/translations";
+
 interface Props {
 	class?: string;
 }
 
 const { class: className } = Astro.props;
+const t = getTranslations(Astro.currentLocale);
 
 const lineButton =
 	"inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-px";
@@ -18,20 +21,20 @@ const lineButton =
 			<h2
 				class="display-font relative z-10 text-[clamp(40px,5.5vw,68px)] leading-[0.95] font-bold tracking-[-0.045em]"
 			>
-				Ready to work<br />on your project?
+				{t.contact.titleLines[0]}<br />{t.contact.titleLines[1]}
 			</h2>
 			<div class="relative z-10 flex flex-col gap-2.5">
-				<p class="mb-2 text-zinc-400">Reach out on Discord or by email, or join the Light Services community.</p>
+				<p class="mb-2 text-zinc-400">{t.contact.description}</p>
 				<button
 					type="button"
 					class="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#111113] transition hover:-translate-y-px"
 					data-ctc="@nortex"
 				>
-					Copy Discord @nortex
+					{t.contact.copyDiscord}
 				</button>
 				<a class={lineButton} href="mailto:contact@nortexdev.com">contact@nortexdev.com</a>
 				<a class={lineButton} href="https://lightservices.nortexdev.com" target="_blank" rel="noreferrer">
-					Join Light Services &nearr;
+					{t.contact.joinLightServices} &nearr;
 				</a>
 			</div>
 		</div>
