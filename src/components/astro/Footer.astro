@@ -1,9 +1,12 @@
 ---
+import { getTranslations } from "@/i18n/translations";
+
 interface Props {
 	class?: string;
 }
 
 const { class: className } = Astro.props;
+const t = getTranslations(Astro.currentLocale);
 
 const linkClass = "block py-1 transition-colors hover:text-white";
 const creditLinkClass = "text-indigo-300 hover:underline";
@@ -13,11 +16,13 @@ const creditLinkClass = "text-indigo-300 hover:underline";
 	<div class="mx-auto max-w-[1120px] px-6">
 		<div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
 			<div>
-				<div class="display-font text-[26px] font-bold text-white">NorteX<span class="text-blue-500">.</span></div>
-				<p class="mt-3 max-w-[320px] leading-relaxed">Beautiful websites coded with love.</p>
+				<div class="display-font text-[26px] font-bold text-white">
+					NorteX<span class="text-blue-500">.</span>
+				</div>
+				<p class="mt-3 max-w-[320px] leading-relaxed">{t.footer.tagline}</p>
 			</div>
 			<div>
-				<h4 class="display-font mb-3.5 text-sm text-white">Services</h4>
+				<h4 class="display-font mb-3.5 text-sm text-white">{t.footer.services}</h4>
 				<a class={linkClass} href="https://hosting.nortexdev.com" target="_blank" rel="noreferrer">
 					hosting.nortexdev.com
 				</a>
@@ -29,8 +34,8 @@ const creditLinkClass = "text-indigo-300 hover:underline";
 				</a>
 			</div>
 			<div>
-				<h4 class="display-font mb-3.5 text-sm text-white">Connect</h4>
-				<a class={linkClass} href="mailto:contact@nortexdev.com">Email</a>
+				<h4 class="display-font mb-3.5 text-sm text-white">{t.footer.connect}</h4>
+				<a class={linkClass} href="mailto:contact@nortexdev.com">{t.footer.email}</a>
 				<a class={`${linkClass} cursor-pointer`} data-ctc="@nortex">Discord</a>
 				<a class={linkClass} href="https://github.com/nortex-dev" target="_blank" rel="noreferrer">GitHub</a>
 			</div>
@@ -38,9 +43,11 @@ const creditLinkClass = "text-indigo-300 hover:underline";
 		<div class="mt-12 flex flex-wrap justify-between gap-3 border-t border-white/8 pt-6">
 			<span>&copy; {new Date().getFullYear()} NorteX Development</span>
 			<span>
-				Designed by <a class={creditLinkClass} href="https://kangaroodev.net" target="_blank" rel="noreferrer">Kangaroo</a>,
-				built with <a class={creditLinkClass} href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a> and
-				<a class={creditLinkClass} href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>.
+				{t.footer.builtWith}
+				<a class={creditLinkClass} href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>
+				{t.footer.and}
+				<a class={creditLinkClass} href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a
+				>.
 			</span>
 		</div>
 	</div>

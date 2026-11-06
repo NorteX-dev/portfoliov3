@@ -1,16 +1,22 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Star from "@/assets/svg/Star.astro";
+import { getTranslations, locales, toLocale } from "@/i18n/translations";
+
+const locale = toLocale(Astro.currentLocale);
+const t = getTranslations(locale);
+const otherLocale = locales.find((candidate) => candidate !== locale) ?? locale;
 
 const links = [
-	{ href: "#about", label: "About" },
-	{ href: "#projects", label: "Projects" },
-	{ href: "#contact", label: "Contact" },
+	{ href: "#about", label: t.nav.about },
+	{ href: "#projects", label: t.nav.projects },
+	{ href: "#contact", label: t.nav.contact },
 ];
 ---
 
 <nav class="display-font relative z-30 text-white">
-	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-7">
-		<a href="#" class="flex items-center gap-3 text-[26px] font-bold">
+	<div class="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-7">
+		<a href={getRelativeLocaleUrl(locale)} class="flex items-center gap-3 text-[26px] font-bold">
 			<Star />
 			<span>NorteX<span class="text-[#0b1f4d]">.</span></span>
 		</a>
@@ -25,11 +31,22 @@ const links = [
 				))
 			}
 		</ul>
-		<a
-			href="#contact"
-			class="rounded-full border border-white/50 px-6 py-3 text-[15px] font-semibold transition hover:-translate-y-0.5 hover:bg-white/10"
-		>
-			Let's talk
-		</a>
+		<div class="flex items-center gap-5">
+			<a
+				href={getRelativeLocaleUrl(otherLocale)}
+				hreflang={otherLocale}
+				lang={otherLocale}
+				title={t.nav.switchLocaleLabel}
+				class="text-sm font-semibold uppercase opacity-85 transition-opacity hover:opacity-100"
+			>
+				{otherLocale}
+			</a>
+			<a
+				href="#contact"
+				class="rounded-full border border-white/50 px-6 py-3 text-[15px] font-semibold transition hover:-translate-y-0.5 hover:bg-white/10"
+			>
+				{t.nav.cta}
+			</a>
+		</div>
 	</div>
 </nav>

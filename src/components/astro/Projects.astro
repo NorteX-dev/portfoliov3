@@ -1,6 +1,9 @@
 ---
+import type { ImageMetadata } from "astro";
 import ProjectCard, { type Props as Project } from "./ProjectCard.astro";
+import { getTranslations, type Translations } from "@/i18n/translations";
 
+import lightStoreCoverImage from "@/assets/projects-full/light-store.png";
 import akatzukiCoverImage from "@/assets/projects/akatzuki.png";
 import katocraftCoverImage from "@/assets/projects/katocraft.png";
 import lsbotCoverImage from "@/assets/projects/lsbot.png";
@@ -15,79 +18,105 @@ interface Props {
 	class?: string;
 }
 
-const { class: className } = Astro.props;
+type ProjectId = keyof Translations["projects"]["items"];
+type TagKey = keyof Translations["projects"]["tags"];
 
-const featuredProjects: Project[] = [
+interface ProjectEntry {
+	id: ProjectId;
+	title: string;
+	image: ImageMetadata;
+	tags: TagKey[];
+	href?: string;
+	wide?: boolean;
+}
+
+const { class: className } = Astro.props;
+const t = getTranslations(Astro.currentLocale);
+
+const featuredEntries: ProjectEntry[] = [
 	{
-		title: "Realms Hosting",
-		description: "Landing page for realms.host along with a WordPress-based blog system.",
-		image: realmsCoverImage,
-		tags: ["Website", "WordPress"],
-		href: "https://realmv2.vercel.app/",
+		id: "lightstore",
+		title: "Light Store",
+		image: lightStoreCoverImage,
+		tags: ["fullStack", "eCommerce"],
+		href: "https://nortex.dev",
 		wide: true,
 	},
 	{
+		id: "lsbot",
 		title: "Light Services Bot",
-		description: "Ticketing and payment handling Discord bot sold on BuiltByBit.",
 		image: lsbotCoverImage,
-		tags: ["Discord bot", "Payments"],
+		tags: ["discordBot", "payments"],
 		href: "https://builtbybit.com/resources/ticket-bot-paypal-crypto-invoices.22995/",
 		wide: true,
 	},
 	{
+		id: "omegalicensing",
 		title: "OmegaLicensing",
-		description: "License management bot sold on BuiltByBit.",
 		image: omegalicensingCoverImage,
-		tags: ["Discord bot"],
+		tags: ["discordBot"],
 		href: "https://builtbybit.com/resources/omegalicensing-system.41222/",
 	},
 	{
+		id: "nconfig",
 		title: "NConfig",
-		description: "A standardized way to write type-safe, validated configs.",
 		image: nconfigCoverImage,
-		tags: ["Open source", "TypeScript"],
+		tags: ["openSource", "typescript"],
 		href: "https://github.com/nortex-dev/nconfig",
 	},
 	{
+		id: "products",
 		title: "Light Products",
-		description: "Resource market for your members, or sell your own.",
 		image: productsCoverImage,
-		tags: ["Discord bot"],
+		tags: ["discordBot"],
 		href: "https://builtbybit.com/resources/light-products-sell-products.51932/",
 	},
 ];
 
-const moreProjects: Project[] = [
+const moreEntries: ProjectEntry[] = [
 	{
+		id: "realms",
+		title: "Realms Hosting",
+		image: realmsCoverImage,
+		tags: ["website", "wordpress"],
+		wide: true,
+	},
+	{
+		id: "nhandler",
 		title: "NHandler",
-		description: "Discord bot command and event handling utility.",
 		image: nhandlerCoverImage,
-		tags: ["Open source"],
+		tags: ["openSource"],
 		href: "https://github.com/nortex-dev/nhandler",
 		wide: true,
 	},
 	{
+		id: "kangaroov3",
 		title: "Kangaroo v3",
-		description: "Helped with the hero and code clean-up.",
 		image: kangv3CoverImage,
-		tags: ["Website"],
-		wide: true,
+		tags: ["website"],
 	},
 	{
+		id: "akatzuki",
 		title: "Akatzuki",
-		description: "Client order, NFT project website.",
 		image: akatzukiCoverImage,
-		tags: ["Client", "Preview unavailable"],
-		wide: true,
+		tags: ["client", "previewUnavailable"],
 	},
 	{
+		id: "katocraft",
 		title: "Katocraft",
-		description: "Client order, CS:GO Katowice 2014 sticker search.",
 		image: katocraftCoverImage,
-		tags: ["Client", "Preview unavailable"],
-		wide: true,
+		tags: ["client", "previewUnavailable"],
 	},
 ];
+
+const localize = ({ id, tags, ...entry }: ProjectEntry): Project => ({
+	...entry,
+	description: t.projects.items[id],
+	tags: tags.map((tag) => t.projects.tags[tag]),
+});
+
+const featuredProjects = featuredEntries.map(localize);
+const moreProjects = moreEntries.map(localize);
 ---
 
 <a id="projects"></a>
@@ -97,13 +126,15 @@ const moreProjects: Project[] = [
 	<div class="relative mx-auto max-w-[1120px] px-6">
 		<div class="flex flex-wrap items-end justify-between gap-6">
 			<div>
-				<div class="text-[13px] font-semibold tracking-[0.14em] text-indigo-300 uppercase">Selected work</div>
+				<div class="text-[13px] font-semibold tracking-[0.14em] text-indigo-300 uppercase">
+					{t.projects.eyebrow}
+				</div>
 				<h2 class="display-font mt-3 text-[clamp(36px,4.5vw,56px)] leading-[1.05] font-bold tracking-[-0.03em]">
-					My Projects
+					{t.projects.title}
 				</h2>
 			</div>
 			<p class="max-w-[360px] leading-relaxed text-zinc-400">
-				Client sites, commercial Discord bots and open-source tooling. Featured first, the rest one click away.
+				{t.projects.description}
 			</p>
 		</div>
 
@@ -115,7 +146,7 @@ const moreProjects: Project[] = [
 			<summary
 				class="display-font mt-6 inline-flex cursor-pointer items-center gap-2.5 rounded-full border border-white/50 px-6 py-3 text-[15px] font-semibold transition hover:-translate-y-0.5 hover:bg-white/10"
 			>
-				Show {moreProjects.length} more projects
+				{t.projects.showMore(moreProjects.length)}
 			</summary>
 			<div class="grid gap-4 text-left md:grid-cols-6">
 				{moreProjects.map((project) => <ProjectCard {...project} />)}
