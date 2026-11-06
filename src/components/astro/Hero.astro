@@ -1,24 +1,144 @@
 ---
-import ParallaxScrollDemo from "../parallax-scroll-demo";
+import { Image } from "astro:assets";
 import FlipWordsProxy from "../react/flip-words";
 import Scales from "../ui/scales";
+import Nav from "./Nav.astro";
+
+import whmcs from "@/assets/projects-full/whmcs.png";
+import lightStore from "@/assets/projects-full/light-store.png";
+import hosting from "@/assets/projects-full/hosting.png";
+import lawForBusiness from "@/assets/projects-full/lawforbusiness.png";
+import lsdash from "@/assets/projects/lsdash.png";
+import realms from "@/assets/projects/realms.png";
+import anima from "@/assets/projects/anima.png";
+import omegalicensing from "@/assets/projects/omegalicensing.png";
+import kangaroov3 from "@/assets/projects/kangaroov3.png";
+import nhandler from "@/assets/projects/nhandler.png";
+
+const showcaseCopies = 3;
+
+const background = [
+	"radial-gradient(900px 500px at 85% 20%, rgba(165, 180, 252, 0.45), transparent 60%)",
+	"radial-gradient(700px 600px at 0% 100%, rgba(29, 78, 216, 0.9), transparent 70%)",
+	"linear-gradient(160deg, #3b82f6 0%, #2563eb 55%, #1e40af 100%)",
+].join(", ");
+
+const showcase = [whmcs, lawForBusiness, lightStore, realms, hosting, lsdash, omegalicensing, anima, kangaroov3, nhandler];
 ---
 
-<!--<div class="mt-[20vh] px-4 container mx-auto">--><!--	<div class="flex items-center md:flex-row flex-col gap-0 md:gap-2">--><!--		<h1 class="text-[48px] md:text-[64px] lg:text-[86px] font-semibold leading-none inter">--><!--			<FlipWordsProxy client:load />--><!--		</h1>--><!--		<h1--><!--			class="text-[48px] md:text-[64px] lg:text-[86px] font-semibold bg-gradient-to-r from-black via-black to-indigo-300 bg-clip-text text-transparent leading-none inter"--><!--		>--><!--			websites--><!--		</h1>--><!--	</div>--><!--	<h1 class="text-[32px] md:text-[48px] lg:text-[64px] font-semibold leading-none inter">coded with love.</h1>--><!--	<div class="flex gap-2 md:gap-8 mt-16 lg:mt-20 justify-center items-center">--><!--		<a--><!--			class="px-8 py-3 bg-black rounded-2xl text-white font-medium text-sm md:text-md hover:bg-neutral-800 transition-all hover:scale-105 cursor-pointer"--><!--			data-ctc="@nortex"--><!--		>--><!--			Contact on Discord--><!--		</a>--><!--		<a class="px-8 py-3 text-sm md:text-md font-medium" href="https://lightservices.nortexdev.com" target="_blank">--><!--			Join Light Services--><!--		</a>--><!--	</div>--><!--</div>-->
-<div class="bg-blue-500 h-[80vh]">
-	<div class="max-w-5xl mx-auto h-full flex items-center justify-between gap-4">
-		<Scales size={12} className="rounded-lg h-full max-h-[80vh]" />
-		<div class="w-full z-20">
-			<h1 class="text-7xl display-font font-bold text-white">
-				Websites and projects that<br /><FlipWordsProxy client:load />
-			</h1>
-			<hr class="border-t-neutral-200/20 my-8 w-1/2" />
-			<p class="text-neutral-200 text-xl">
-				Full-stack development.<br />Fast, functional, and built to last.
-			</p>
+<header
+	class="hero relative flex min-h-[80vh] flex-col overflow-hidden bg-blue-600 text-white"
+	style={`background: ${background}`}
+>
+	<Scales
+		size={14}
+		color="rgb(255 255 255 / 0.07)"
+		className="pointer-events-none [mask-image:linear-gradient(90deg,#000,transparent_45%)]"
+	/>
+
+	<Nav />
+
+	<div class="relative mx-auto flex w-full max-w-6xl flex-1 items-center px-6">
+		<div aria-hidden="true" class="showcase pointer-events-none absolute inset-y-0 right-6 hidden w-[46%] md:block">
+			<div class="showcase-plane">
+				<div class="showcase-track" style={`--showcase-copies: ${showcaseCopies}`}>
+					{
+						Array.from({ length: showcaseCopies }, () => showcase)
+							.flat()
+							.map((src) => (
+								<figure class="mb-6 overflow-hidden rounded-xl bg-[#111] shadow-[0_40px_80px_-20px_rgba(11,31,77,0.75)] ring-1 ring-white/15">
+									<div class="flex h-6 items-center gap-1.5 bg-[#1c1c1f] px-3">
+										<i class="size-2 rounded-full bg-zinc-600" />
+										<i class="size-2 rounded-full bg-zinc-600" />
+										<i class="size-2 rounded-full bg-zinc-600" />
+									</div>
+									<Image
+										src={src}
+										alt=""
+										width={720}
+										class="aspect-[16/9] w-full object-cover object-top"
+									/>
+								</figure>
+							))
+					}
+				</div>
+			</div>
 		</div>
-		<div class="hidden md:block w-full h-full overflow-hidden z-20">
-			<ParallaxScrollDemo client:load />
+
+		<div class="relative z-10 py-16 md:w-[55%] md:py-24">
+			<div>
+				<h1 class="display-font text-[clamp(44px,6vw,76px)] leading-[1.02] font-bold tracking-[-0.03em]">
+					Websites and projects that<br />
+					<FlipWordsProxy className="text-[#0b1f4d]" client:load />
+				</h1>
+				<p class="inter mt-7 max-w-[460px] text-lg leading-relaxed text-white/80">
+					Full-stack developer building fast, functional products: landing pages, dashboards, Discord bots and
+					the libraries behind them.
+				</p>
+				<div class="display-font mt-9 flex flex-wrap gap-3 text-[15px] font-semibold">
+					<a
+						href="#projects"
+						class="rounded-full bg-white px-6 py-3 text-[#1d4ed8] shadow-[0_10px_30px_-10px_rgba(11,31,77,0.6)] transition hover:-translate-y-0.5"
+					>
+						See my work
+					</a>
+					<button
+						type="button"
+						class="cursor-pointer rounded-full border border-white/50 bg-transparent px-6 py-3 text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+						data-ctc="@nortex"
+					>
+						Discord: @nortex
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</header>
+
+<style>
+	.hero::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+		mix-blend-mode: overlay;
+		pointer-events: none;
+	}
+
+	.showcase {
+		perspective: 1400px;
+		mask-image: linear-gradient(180deg, transparent, #000 15%, #000 85%, transparent);
+	}
+
+	.showcase-plane {
+		position: absolute;
+		inset: 0 6%;
+		transform: rotateX(14deg) rotateY(-20deg) rotateZ(4deg);
+		transform-style: preserve-3d;
+	}
+
+	.showcase-track {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		translate: 0 -50%;
+		animation: showcase-scroll 80s linear infinite;
+		will-change: transform;
+	}
+
+	@keyframes showcase-scroll {
+		from {
+			transform: translateY(calc(50% / var(--showcase-copies)));
+		}
+		to {
+			transform: translateY(calc(-50% / var(--showcase-copies)));
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.showcase-track {
+			animation: none;
+		}
+	}
+</style>

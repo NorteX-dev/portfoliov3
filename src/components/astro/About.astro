@@ -21,200 +21,79 @@ interface Props {
 }
 
 const { class: className } = Astro.props;
+
+const skillGroups = [
+	{
+		title: "Frontend",
+		skills: [
+			{ name: "React", image: reactImage },
+			{ name: "Next.js", image: nextjsImage },
+			{ name: "Svelte", image: svelteImage },
+			{ name: "Astro", image: astroImage },
+			{ name: "Tailwind", image: tailwindImage },
+			{ name: "TanStack Query", image: tanstackQueryImage },
+		],
+	},
+	{
+		title: "Languages",
+		skills: [
+			{ name: "TypeScript", image: typescriptImage },
+			{ name: "JavaScript", image: javascriptImage },
+			{ name: "C#", image: csharpImage },
+			{ name: "Java", image: javaImage },
+			{ name: "Lua", image: luaImage },
+			{ name: "HTML", image: htmlImage },
+			{ name: "CSS", image: cssImage },
+		],
+	},
+	{
+		title: "Backend and infra",
+		skills: [
+			{ name: "Node.js", image: nodeImage },
+			{ name: "Linux administration", image: linuxImage },
+		],
+	},
+];
 ---
 
 <a id="about"></a>
-<div class={`flex text-center container-wide gap-8 lg:gap-16 ${className}`}>
-	<div class="flex-1 w-full h-64 flex flex-col gap-8 items-center justify-center text-center">
-		<div class="inter font-semibold leading-tight">
-			<p class="text-[64px]">Let's make</p>
-			<p class="text-[52px]">
-				the
-				<span class="bg-gradient-to-r bg-clip-text text-transparent from-indigo-400 to-indigo-300"> web </span>
-			</p>
-			<p class="text-[32px] mt-1">beautiful.</p>
-		</div>
-		<p class="inter font-normal xl:text-lg">
-			I'm an experienced <i>full-stack web developer</i> whose main focus is precisely and meticulously crafted web
-			designs, all whilst keeping in mind the all-important website performance. I primarily make websites like forums,
-			dashboards, blogs, etc. and I'm always open to make yours!
-		</p>
-		<a
-			class="px-8 py-3 bg-black rounded-2xl text-white font-medium text-sm md:text-md hover:bg-neutral-800 transition-all hover:scale-105 cursor-pointer"
-			data-ctc="@nortex"
-		>
-			Contact on Discord
-		</a>
-	</div>
-	<div
-		class="flex-1 w-full max-md:hidden grid grid-cols-5 grid-rows-3 gap-4 *:rounded-lg *:bg-gray-300 *:aspect-square *:p-4"
-	>
+<section class={`py-[120px] max-md:py-20 ${className ?? ""}`}>
+	<div class="mx-auto grid max-w-[1120px] items-start gap-16 px-6 md:grid-cols-2">
 		<div>
-			<Image
-				src={typescriptImage}
-				alt="TypeScript"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-cover"
-				data-tooltip="TypeScript"
-			/>
+			<div class="text-[13px] font-semibold tracking-[0.14em] text-[#1d4ed8] uppercase">About</div>
+			<h2
+				class="display-font mt-3 text-[clamp(36px,4.5vw,56px)] leading-[1.05] font-bold tracking-[-0.03em] text-[#0f0f10]"
+			>
+				Let's make the web beautiful.
+			</h2>
+			<div class="inter text-lg leading-[1.7] text-zinc-700">
+				<p class="mt-6">
+					I'm an experienced <em class="font-semibold text-[#0f0f10] not-italic">full-stack web developer</em> focused on
+					precisely crafted interfaces without compromising on performance.
+				</p>
+				<p class="mt-6">
+					Forums, dashboards, blogs, hosting panels, Discord tooling: if it lives on the web, I've probably built
+					something like it, and I'm always open to building yours.
+				</p>
+			</div>
 		</div>
-		<div>
-			<Image
-				src={javascriptImage}
-				alt="JavaScript"
-				data-tooltip="JavaScript"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-cover"
-			/>
-		</div>
-		<div>
-			<Image
-				src={nodeImage}
-				alt="Node.js"
-				data-tooltip="Node.js"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={reactImage}
-				alt="React.js"
-				data-tooltip="React.js"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={nextjsImage}
-				alt="Next.js"
-				data-tooltip="Next.js"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-cover"
-			/>
-		</div>
-		<div>
-			<Image
-				src={svelteImage}
-				alt="Svelte and SvelteKit"
-				data-tooltip="Svelte and SvelteKit"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={astroImage}
-				alt="Astro"
-				data-tooltip="Astro"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-cover"
-			/>
-		</div>
-		<div>
-			<Image
-				src={tailwindImage}
-				alt="Tailwind"
-				data-tooltip="Tailwind"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={javaImage}
-				alt="Java"
-				data-tooltip="Java"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={csharpImage}
-				alt="C#"
-				data-tooltip="C#"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={luaImage}
-				alt="Lua"
-				data-tooltip="Lua"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-cover"
-			/>
-		</div>
-		<div>
-			<Image
-				src={tanstackQueryImage}
-				alt="Tanstack Query"
-				data-tooltip="Tanstack Query"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={htmlImage}
-				alt="HTML"
-				data-tooltip="HTML"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={cssImage}
-				alt="CSS"
-				data-tooltip="CSS"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-		<div>
-			<Image
-				src={linuxImage}
-				alt="Linux System Administration"
-				data-tooltip="Linux System Administration"
-				width="64"
-				height="64"
-				loading="lazy"
-				class="rounded-lg w-full h-full object-scale-down"
-			/>
-		</div>
-	</div>
-</div>
 
-<script src="./tippy.ts"></script>
+		<div class="flex flex-col gap-4">
+			{
+				skillGroups.map(({ title, skills }) => (
+					<div class="rounded-[20px] border border-zinc-200 bg-white p-6">
+						<h3 class="display-font text-[15px] font-medium text-zinc-500">{title}</h3>
+						<ul class="mt-3.5 flex flex-wrap gap-2">
+							{skills.map(({ name, image }) => (
+								<li class="inter inline-flex items-center gap-2 rounded-[10px] bg-zinc-100 py-[7px] pr-3 pl-2 text-sm font-medium text-[#0f0f10]">
+									<Image src={image} alt="" width={40} height={40} class="size-5 rounded object-contain" />
+									{name}
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

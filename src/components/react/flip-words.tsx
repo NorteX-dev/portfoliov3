@@ -77,6 +77,6 @@ const FlipWords = ({
 	);
 };
 
-export default function FlipWordsProxy() {
-	return <FlipWords words={["perform.", "astonish.", "scale.", "just work."]} />;
+export default function FlipWordsProxy({ className }: { className?: string }) {
+	return <FlipWords words={["perform.", "astonish.", "scale.", "just work."]} className={className} />;
 }

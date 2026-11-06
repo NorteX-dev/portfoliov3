@@ -1,22 +1,35 @@
 ---
 import Star from "@/assets/svg/Star.astro";
+
+const links = [
+	{ href: "#about", label: "About" },
+	{ href: "#projects", label: "Projects" },
+	{ href: "#contact", label: "Contact" },
+];
 ---
 
-<nav class="bg-blue-500 flex flex-col md:flex-row items-center justify-around py-6 display-font max-md:gap-6">
-	<h1 class="font-bold text-3xl flex items-center text-white">
-		<Star />
-		<span class="ml-4">NorteX</span><span class="text-blue-800 ml-2">.</span>
-	</h1>
-	<ul class="flex flex-col items-center md:flex-row text-white gap-4 lg:gap-16 *:font-medium">
-		<li>
-			<a href="#about">About</a>
-		</li>
-		<li>
-			<a href="#projects">Projects</a>
-		</li>
-		<!--<li>-->
-		<!--	<a href="#testimonials">Testimonials</a>-->
-		<!--</li>-->
-	</ul>
-	<a class="border border-white rounded-2xl px-8 py-2 text-white display-font font-bold" href="#contact">Contact</a>
+<nav class="display-font relative z-30 text-white">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-7">
+		<a href="#" class="flex items-center gap-3 text-[26px] font-bold">
+			<Star />
+			<span>NorteX<span class="text-[#0b1f4d]">.</span></span>
+		</a>
+		<ul class="hidden gap-10 font-medium md:flex">
+			{
+				links.map(({ href, label }) => (
+					<li>
+						<a href={href} class="opacity-85 transition-opacity hover:opacity-100">
+							{label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<a
+			href="#contact"
+			class="rounded-full border border-white/50 px-6 py-3 text-[15px] font-semibold transition hover:-translate-y-0.5 hover:bg-white/10"
+		>
+			Let's talk
+		</a>
+	</div>
 </nav>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NorteX - Draft 2 (Dark Editorial)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+	:root {
+		--bg: #0b0b0c;
+		--bg-2: #131315;
+		--line: #26262a;
+		--text: #f4f4f5;
+		--muted: #8b8b94;
+		--blue: #4f8bff;
+		--indigo: #aeacff;
+	}
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	html { scroll-behavior: smooth; }
+	body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+	a { color: inherit; text-decoration: none; }
+	img { display: block; max-width: 100%; }
+	.mono { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+	.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+	nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 50; display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 18px; border-radius: 999px; background: rgba(19, 19, 21, 0.7); border: 1px solid var(--line); backdrop-filter: blur(14px); }
+	nav .logo { font-family: "Space Grotesk"; font-weight: 700; margin-right: 16px; }
+	nav .logo span { color: var(--blue); }
+	nav a.link { padding: 8px 14px; border-radius: 999px; font-size: 14px; color: var(--muted); transition: color 0.2s, background 0.2s; }
+	nav a.link:hover { color: var(--text); background: #1f1f23; }
+	nav a.cta { padding: 8px 16px; border-radius: 999px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; }
+
+	.hero { position: relative; min-height: clamp(680px, 100vh, 980px); padding-top: 140px; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 64px; overflow: hidden; }
+	.hero-bg { position: absolute; inset: 0; z-index: -1; }
+	.hero-bg::before { content: ""; position: absolute; width: 1100px; height: 1100px; right: -300px; top: -400px; background: radial-gradient(circle, rgba(79, 139, 255, 0.55) 0%, rgba(79, 139, 255, 0.15) 35%, transparent 65%); filter: blur(20px); animation: drift 18s ease-in-out infinite alternate; }
+	.hero-bg::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%); opacity: 0.6; }
+	@keyframes drift { to { transform: translate(-120px, 80px) scale(1.1); } }
+
+	.hero-meta { display: flex; justify-content: space-between; gap: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+	.hero-meta .live { display: inline-flex; align-items: center; gap: 8px; }
+	.hero-meta .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+	@keyframes pulse { 50% { opacity: 0.3; } }
+	.hero h1 { font-family: "Space Grotesk"; font-weight: 600; font-size: clamp(56px, 10vw, 152px); line-height: 0.92; letter-spacing: -0.05em; }
+	.hero h1 .outline { color: transparent; -webkit-text-stroke: 1.5px #3f3f46; }
+	.hero h1 .accent { background: linear-gradient(90deg, var(--blue), var(--indigo)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+	.rotator { display: inline-grid; vertical-align: top; }
+	.rotator span { grid-area: 1 / 1; opacity: 0; animation: rot 12s infinite; }
+	.rotator span:nth-child(2) { animation-delay: 3s; }
+	.rotator span:nth-child(3) { animation-delay: 6s; }
+	.rotator span:nth-child(4) { animation-delay: 9s; }
+	@keyframes rot { 0% { opacity: 0; transform: translateY(20px); filter: blur(10px); } 5%, 22% { opacity: 1; transform: none; filter: none; } 27%, 100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); } }
+	.hero-foot { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; margin-top: 48px; }
+	.hero-foot p { max-width: 480px; color: var(--muted); font-size: 18px; line-height: 1.6; }
+	.hero-foot p b { color: var(--text); font-weight: 500; }
+	.round-cta { width: 148px; height: 148px; border-radius: 50%; display: grid; place-items: center; text-align: center; background: var(--text); color: var(--bg); font-family: "Space Grotesk"; font-weight: 600; transition: transform 0.3s, background 0.3s; }
+	.round-cta:hover { transform: rotate(-8deg) scale(1.05); background: var(--blue); color: #fff; }
+
+	section { padding: 140px 0; border-top: 1px solid var(--line); }
+	.sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-bottom: 72px; }
+	.sec-head h2 { font-family: "Space Grotesk"; font-weight: 600; font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.04em; line-height: 1; }
+	.sec-head h2 em { font-style: normal; color: var(--muted); }
+
+	.services { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+	.service { padding: 32px 28px 36px; border-right: 1px solid var(--line); position: relative; transition: background 0.3s; }
+	.service:last-child { border-right: 0; }
+	.service:hover { background: var(--bg-2); }
+	.service .num { font-family: "JetBrains Mono"; color: var(--blue); font-size: 13px; }
+	.service h3 { font-family: "Space Grotesk"; font-size: 24px; font-weight: 600; margin: 48px 0 12px; }
+	.service p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+	.service ul { list-style: none; margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px; }
+	.service li { font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: #c4c4cc; }
+
+	.index { list-style: none; }
+	.index li a, .index li > div { position: relative; display: grid; grid-template-columns: 60px 1.4fr 1fr 140px 40px; gap: 24px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); transition: padding 0.3s, color 0.3s; }
+	.index li:first-child a, .index li:first-child > div { border-top: 1px solid var(--line); }
+	.index .n { font-family: "JetBrains Mono"; font-size: 13px; color: var(--muted); }
+	.index .t { font-family: "Space Grotesk"; font-size: clamp(24px, 3vw, 40px); font-weight: 500; letter-spacing: -0.03em; transition: transform 0.3s; }
+	.index .d { color: var(--muted); font-size: 14px; line-height: 1.5; }
+	.index .k { font-family: "JetBrains Mono"; font-size: 12px; text-transform: uppercase; color: var(--muted); }
+	.index .arrow { font-size: 22px; color: var(--muted); transition: transform 0.3s, color 0.3s; }
+	.index .preview { position: absolute; right: 200px; top: 50%; width: 320px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; pointer-events: none; opacity: 0; transform: translateY(-50%) rotate(-4deg) scale(0.9); transition: opacity 0.3s, transform 0.4s; z-index: 5; box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.8); }
+	.index .preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+	.index li a:hover .t, .index li > div:hover .t { transform: translateX(16px); }
+	.index li a:hover .arrow { transform: rotate(-45deg); color: var(--blue); }
+	.index li a:hover .preview, .index li > div:hover .preview { opacity: 1; transform: translateY(-50%) rotate(-2deg) scale(1); }
+	.index li a:hover .k, .index li > div:hover .k { color: var(--indigo); }
+
+	.about-grid { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 32px; }
+	.about-grid .big { font-family: "Space Grotesk"; font-size: clamp(28px, 3vw, 38px); line-height: 1.25; letter-spacing: -0.02em; }
+	.about-grid .big span { color: var(--muted); }
+	.stack-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+	.stack-list div { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+	.stack-list div span:last-child { font-family: "JetBrains Mono"; font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+	.process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 96px; }
+	.step { padding: 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line); }
+	.step .mono { color: var(--blue); }
+	.step h4 { font-family: "Space Grotesk"; font-size: 20px; margin: 18px 0 8px; }
+	.step p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+	.contact { text-align: center; position: relative; overflow: hidden; }
+	.contact::before { content: ""; position: absolute; left: 50%; bottom: -500px; width: 1000px; height: 800px; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(79, 139, 255, 0.4), transparent 65%); z-index: -1; }
+	.contact h2 { font-family: "Space Grotesk"; font-weight: 600; font-size: clamp(48px, 9vw, 128px); letter-spacing: -0.05em; line-height: 0.95; }
+	.contact h2 a { background: linear-gradient(90deg, var(--blue), var(--indigo)); -webkit-background-clip: text; background-clip: text; color: transparent; border-bottom: 4px solid transparent; }
+	.contact .options { display: flex; justify-content: center; gap: 12px; margin-top: 56px; flex-wrap: wrap; }
+	.contact .options > * { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-2); font-size: 15px; cursor: pointer; transition: border-color 0.2s, transform 0.2s; color: var(--text); font-family: inherit; }
+	.contact .options > *:hover { border-color: var(--blue); transform: translateY(-2px); }
+
+	footer { border-top: 1px solid var(--line); padding: 32px 0; }
+	footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+	footer nav.flat { position: static; transform: none; background: none; border: 0; padding: 0; gap: 20px; backdrop-filter: none; flex-wrap: wrap; }
+	footer a:hover { color: var(--text); }
+
+	@media (max-width: 960px) {
+		nav a.link { display: none; }
+		.services { grid-template-columns: 1fr 1fr; }
+		.service:nth-child(2) { border-right: 0; }
+		.service:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+		.sec-head, .about-grid { grid-template-columns: 1fr; }
+		.index li a, .index li > div { grid-template-columns: 40px 1fr 30px; }
+		.index .d, .index .k, .index .preview { display: none; }
+		.process { grid-template-columns: 1fr; }
+		.hero-foot { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 560px) {
+		.wrap { padding: 0 16px; }
+		.services { grid-template-columns: 1fr; }
+		.service { border-right: 0; border-bottom: 1px solid var(--line); }
+		.stack-list { grid-template-columns: 1fr; }
+		section { padding: 96px 0; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		*, *::before, *::after { animation: none !important; transition: none !important; }
+		.rotator span:first-child { opacity: 1; }
+	}
+</style>
+</head>
+<body>
+
+<nav>
+	<span class="logo">NorteX<span>.</span></span>
+	<a class="link" href="#services">Services</a>
+	<a class="link" href="#work">Work</a>
+	<a class="link" href="#about">About</a>
+	<a class="cta" href="#contact">Contact</a>
+</nav>
+
+<header class="hero">
+	<div class="hero-bg"></div>
+	<div class="wrap">
+		<div class="hero-meta mono">
+			<span>Full-stack developer</span>
+			<span>Web / Discord / Open source</span>
+			<span class="live">Available for work</span>
+		</div>
+		<h1>
+			Websites that<br />
+			<span class="rotator"><span class="accent">perform.</span><span class="accent">astonish.</span><span class="accent">scale.</span><span class="accent">just work.</span></span>
+			<span class="outline">&nbsp;Built</span><br />
+			<span class="outline">to last.</span>
+		</h1>
+		<div class="hero-foot">
+			<p>I'm <b>NorteX</b>, a full-stack developer crafting meticulous interfaces, dashboards and Discord tooling, with performance treated as a feature, not an afterthought.</p>
+			<a class="round-cta" href="#work">See the<br />work &darr;</a>
+		</div>
+	</div>
+</header>
+
+<section id="services">
+	<div class="wrap">
+		<div class="sec-head">
+			<span class="mono">(01) Services</span>
+			<h2>What I build, <em>end to end.</em></h2>
+		</div>
+		<div class="services">
+			<div class="service">
+				<span class="num">01</span>
+				<h3>Websites</h3>
+				<p>Landing pages, blogs and portfolios designed to load fast and look sharp on every screen.</p>
+				<ul><li>Astro</li><li>Next.js</li><li>Tailwind</li></ul>
+			</div>
+			<div class="service">
+				<span class="num">02</span>
+				<h3>Dashboards</h3>
+				<p>Full-stack panels and client areas with real data, auth and billing flows.</p>
+				<ul><li>React</li><li>Svelte</li><li>Node.js</li></ul>
+			</div>
+			<div class="service">
+				<span class="num">03</span>
+				<h3>Discord bots</h3>
+				<p>Ticketing, payments and licensing bots, several sold commercially on BuiltByBit.</p>
+				<ul><li>TypeScript</li><li>Payments</li></ul>
+			</div>
+			<div class="service">
+				<span class="num">04</span>
+				<h3>Tooling</h3>
+				<p>Open-source libraries and infrastructure: typed configs, handlers, Linux servers.</p>
+				<ul><li>Open source</li><li>Linux</li></ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="work">
+	<div class="wrap">
+		<div class="sec-head">
+			<span class="mono">(02) Selected work</span>
+			<h2>Projects, <em>shipped and live.</em></h2>
+		</div>
+		<ul class="index">
+			<li><a href="https://lightservices.nortexdev.com" target="_blank"><span class="n">01</span><span class="t">Light Services Dashboard</span><span class="d">Full-stack web interface for Light Services.</span><span class="k">Full-stack</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/lsdash.png" alt="" /></span></a></li>
+			<li><a href="https://realmv2.vercel.app/" target="_blank"><span class="n">02</span><span class="t">Realms Hosting</span><span class="d">Landing page and WordPress-based blog system.</span><span class="k">Website</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/realms.png" alt="" /></span></a></li>
+			<li><a href="https://builtbybit.com/resources/ticket-bot-paypal-crypto-invoices.22995/" target="_blank"><span class="n">03</span><span class="t">Light Services Bot</span><span class="d">Ticketing and payment handling, sold on BuiltByBit.</span><span class="k">Discord bot</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/lsbot.png" alt="" /></span></a></li>
+			<li><a href="https://builtbybit.com/resources/omegalicensing-system.41222/" target="_blank"><span class="n">04</span><span class="t">OmegaLicensing</span><span class="d">License management bot sold on BuiltByBit.</span><span class="k">Discord bot</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/omegalicensing.png" alt="" /></span></a></li>
+			<li><a href="https://builtbybit.com/resources/light-products-sell-products.51932/" target="_blank"><span class="n">05</span><span class="t">Light Products</span><span class="d">Member-driven resource market with commissions.</span><span class="k">Discord bot</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/products.png" alt="" /></span></a></li>
+			<li><a href="https://github.com/nortex-dev/nconfig" target="_blank"><span class="n">06</span><span class="t">NConfig</span><span class="d">Type-safe, validated configs.</span><span class="k">Open source</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/nconfig.png" alt="" /></span></a></li>
+			<li><a href="https://github.com/nortex-dev/nhandler" target="_blank"><span class="n">07</span><span class="t">NHandler</span><span class="d">Discord command and event handling utility.</span><span class="k">Open source</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/nhandler.png" alt="" /></span></a></li>
+			<li><a href="https://anima-three.vercel.app/" target="_blank"><span class="n">08</span><span class="t">Anima</span><span class="d">Concept anime streaming service.</span><span class="k">Website</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/anima.png" alt="" /></span></a></li>
+			<li><a href="https://kangport.vercel.app/" target="_blank"><span class="n">09</span><span class="t">Kang Portfolio</span><span class="d">Example portfolio.</span><span class="k">Website</span><span class="arrow">&rarr;</span><span class="preview"><img src="../src/assets/projects/kangarooport.png" alt="" /></span></a></li>
+			<li><div><span class="n">10</span><span class="t">Kangaroo v3</span><span class="d">Hero and code clean-up.</span><span class="k">Website</span><span class="arrow"></span><span class="preview"><img src="../src/assets/projects/kangaroov3.png" alt="" /></span></div></li>
+			<li><div><span class="n">11</span><span class="t">Akatzuki</span><span class="d">Client order, NFT project site.</span><span class="k">Client</span><span class="arrow"></span><span class="preview"><img src="../src/assets/projects/akatzuki.png" alt="" /></span></div></li>
+			<li><div><span class="n">12</span><span class="t">Katocraft</span><span class="d">Client order, Katowice 2014 sticker search.</span><span class="k">Client</span><span class="arrow"></span><span class="preview"><img src="../src/assets/projects/katocraft.png" alt="" /></span></div></li>
+		</ul>
+	</div>
+</section>
+
+<section id="about">
+	<div class="wrap">
+		<div class="about-grid">
+			<span class="mono">(03) About</span>
+			<p class="big">Let's make the web beautiful. <span>I obsess over the details users feel but rarely notice: spacing, motion, and pages that load before you blink.</span></p>
+			<div class="stack-list">
+				<div><span>TypeScript</span><span>Lang</span></div>
+				<div><span>JavaScript</span><span>Lang</span></div>
+				<div><span>C#</span><span>Lang</span></div>
+				<div><span>Java</span><span>Lang</span></div>
+				<div><span>Lua</span><span>Lang</span></div>
+				<div><span>React / Next.js</span><span>UI</span></div>
+				<div><span>Svelte / Kit</span><span>UI</span></div>
+				<div><span>Astro</span><span>UI</span></div>
+				<div><span>Tailwind</span><span>UI</span></div>
+				<div><span>TanStack Query</span><span>Data</span></div>
+				<div><span>Node.js</span><span>Server</span></div>
+				<div><span>Linux</span><span>Infra</span></div>
+			</div>
+		</div>
+		<div class="process">
+			<div class="step"><span class="mono">Step 01</span><h4>Scope</h4><p>We pin down what you need, who it is for and what success looks like.</p></div>
+			<div class="step"><span class="mono">Step 02</span><h4>Build</h4><p>Iterative builds with previews you can click through, not just screenshots.</p></div>
+			<div class="step"><span class="mono">Step 03</span><h4>Ship</h4><p>Deployment, hosting and hand-off, with support when you need changes.</p></div>
+		</div>
+	</div>
+</section>
+
+<section id="contact" class="contact">
+	<div class="wrap">
+		<span class="mono">(04) Contact</span>
+		<h2 style="margin-top: 24px">Got an idea?<br /><a href="mailto:contact@nortexdev.com">Let's build it.</a></h2>
+		<div class="options">
+			<button data-ctc="@nortex">Discord: @nortex</button>
+			<a href="mailto:contact@nortexdev.com">contact@nortexdev.com</a>
+			<a href="https://lightservices.nortexdev.com" target="_blank">Join Light Services &nearr;</a>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="wrap mono">
+		<span>&copy; 2026 nortexdev / Designed by <a href="https://kangaroodev.net" target="_blank">Kangaroo</a></span>
+		<nav class="flat">
+			<a href="https://hosting.nortexdev.com" target="_blank">Hosting</a>
+			<a href="https://panel.nortexdev.com" target="_blank">Panel</a>
+			<a href="https://lightservices.nortexdev.com" target="_blank">Light Services</a>
+			<a href="https://github.com/nortex-dev" target="_blank">GitHub</a>
+		</nav>
+	</div>
+</footer>
+
+<script>
+	document.querySelectorAll("[data-ctc]").forEach((el) => {
+		el.addEventListener("click", () => {
+			const original = el.innerHTML;
+			navigator.clipboard.writeText(el.dataset.ctc);
+			el.innerHTML = "Copied to clipboard!";
+			setTimeout(() => (el.innerHTML = original), 2000);
+		});
+	});
+</script>
+</body>
+</html>
